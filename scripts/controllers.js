@@ -14,3 +14,4 @@ Controller.controller("navController",["$scope",function($scope){
 	{url:'#/settings',icon:'icon-cog',text:"设置"}
 	]
 }]);
+
