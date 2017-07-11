@@ -1,87 +1,31 @@
 <div class="item">
     <!-- 日期分类 -->
-    <div class="mark">{{time}}</div>
+    <div class="mark" ng-show="loaded">{{time}}</div>
     <ul class="posts large">
         <!-- 文章 -->
-        <li>
-            <span href="javascript:;" class="tag">去远方</span>
+          <!-- display_style:10003，纯图片 -->
+         <!-- display_style:10002，文字+图片 -->
+        <!-- display_style:10001，纯文字 -->
+        <li ng-repeat="post in posts">
+            <span href="javascript:;" class="tag" ng-if="post.column.name">{{post.column.name}}</span>
             <div class="cont">
-                <h3>朝圣山南扎央宗--探索藏文化之源探索藏文化之源</h3>
+                <h3>{{post.title}}</h3>
                 <div class="brief">
-                    <p class="only">那里有个很窄的洞，钻进去曾是莲花生大师修行的地方，在藏民心中钻洞是为了洗清那里有个很窄的洞，钻进去曾是莲花生大师修行的地方，在藏民心中钻洞是为了洗清中钻洞是为了洗清那里有个很窄的洞，钻进去曾是莲花生大师修行的地方</p>
-                </div>
-            </div>
-        </li>
-        <li>
-            <span href="javascript:;" class="tag">去远方</span>
-            <div class="cont">
-                <h3>朝圣山南扎央宗--探索藏文化之源探索藏文化之源探索藏文化之源</h3>
-                <div class="brief">
-                    <p>那里有个很窄的洞，钻进去曾是莲花生大师修行的地方，在藏民心中钻洞是为了洗清</p>
-                    <div class="thumb">
-                        <img src="./uploads/post_1.png" alt="">
+                <!-- 根据display_style的值不同 下面的结构不同 -->
+                    <!-- 10001和10002都有p，但是只有10001有class=only -->
+                    <p ng-class="{only:post.display_style == 10001}" ng-if="post.display_style!= 10003">
+                         {{post.abstract}}
+                    </p>
+                    
+
+                    <div class="thumb" ng-if="post.display_style==10002">
+                        <img src="{{post.thumbs[0].small.url}}" alt="">
+                    </div>
+                    <div class="gallery" ng-if="post.display_style==10003">
+                        <img src="{{post.thumbs[0].small.url}}" alt="">
                     </div>
                 </div>
             </div>
-        </li>
-        <li>
-            <span href="javascript:;" class="tag">去远方</span>
-            <div class="cont">
-                <h3>朝圣山南扎央宗--探索藏文化之源</h3>
-                <div class="brief">
-                    <div class="gallery">
-                        <img src="./uploads/post_2.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <span href="javascript:;" class="tag">去远方</span>
-            <div class="cont">
-                <h3>朝圣山南扎央宗--探索藏文化之源探索藏文化之源探索藏文化之源</h3>
-                <div class="brief">
-                    <p>那里有个很窄的洞，钻进去曾是莲花生大师修行的地方，在藏民心中钻洞是为了洗清</p>
-                    <div class="thumb">
-                        <img src="./uploads/post_1.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <span href="javascript:;" class="tag">去远方</span>
-            <div class="cont">
-                <h3>朝圣山南扎央宗--探索藏文化之源探索藏文化之源探索藏文化之源</h3>
-                <div class="brief">
-                    <p>那里有个很窄的洞，钻进去曾是莲花生大师修行的地方，在藏民心中钻洞是为了洗清</p>
-                    <div class="thumb">
-                        <img src="./uploads/post_1.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <span href="javascript:;" class="tag">去远方</span>
-            <div class="cont">
-                <h3>朝圣山南扎央宗--探索藏文化之源探索藏文化之源探索藏文化之源</h3>
-                <div class="brief">
-                    <p>那里有个很窄的洞，钻进去曾是莲花生大师修行的地方，在藏民心中钻洞是为了洗清</p>
-                    <div class="thumb">
-                        <img src="./uploads/post_1.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <span href="javascript:;" class="tag">去远方</span>
-            <div class="cont">
-                <h3>朝圣山南扎央宗--探索藏文化之源探索藏文化之源探索藏文化之源</h3>
-                <div class="brief">
-                    <p>那里有个很窄的洞，钻进去曾是莲花生大师修行的地方，在藏民心中钻洞是为了洗清</p>
-                    <div class="thumb">
-                        <img src="./uploads/post_1.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </li>
+        </li>       
     </ul>
 </div>

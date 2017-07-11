@@ -3,7 +3,7 @@ app.js是整个angularjs应用程序的入口
 创建应用模块
 */
 
-var yike = angular.module("yike",["ngRoute","Controller"]);
+var yike = angular.module("yike",["ngRoute","Controller","directives"]);
 // 定义 toogle方法
 // $(document).ready(function(){
 // })  == yike.run([]);
@@ -39,8 +39,29 @@ yike.config(function($locationProvider){
 // 配置路由
 	yike.config(["$routeProvider",function($routeProvider){
 		$routeProvider.when("/today",{
-			templateUrl:"./views/today.html"
-		}).otherwise({
-
+			templateUrl:"./views/today.html",
+			controller:"todayContr"
 		})
-	}])
+		.when("/older",{
+			templateUrl:"./views/older.html",
+			controller:"olderContr"
+		})
+		.when("/author",{
+			templateUrl:"./views/author.html",
+			controller:"authorContr"
+		})
+		.when("/category",{
+			templateUrl:"./views/category.html",
+			controller:"categoryContr"
+		})
+		.when("/favourite",{
+			templateUrl:"./views/favourite.html",
+			controller:"todayContr"
+		})
+		.when("/settings",{
+			templateUrl:"./views/settings.html"
+		})
+		.otherwise({
+			redirecTo:"/today"
+		})
+	}]);

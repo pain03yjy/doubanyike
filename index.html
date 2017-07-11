@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="./public/less/main.css">
 </head>
 <body>
+
 	<div class="viewport" ng-app="yike">
 		<!-- 侧边导航 -->
 		<div ng-class="{navs:true,collapse:collapsed}" ng-controller="navController">
@@ -23,36 +24,6 @@
 						<span>{{key.text}}</span>
 					</a>
 				</dd>
-				<!-- <dd class="active">
-					<a href="#/day" class="icon-home">
-						<span>今日一刻</span>
-					</a>
-				</dd>
-				<dd>
-					<a href="./older.html" class="icon-file-empty">
-						<span>往期内容</span>
-					</a>
-				</dd>
-				<dd>
-					<a href="./author.html" class="icon-pencil">
-						<span>热门作者</span>
-					</a>
-				</dd>
-				<dd>
-					<a href="./category.html" class="icon-menu">
-						<span>栏目浏览</span>
-					</a>
-				</dd>
-				<dd>
-					<a href="./favourite.html" class="icon-heart">
-						<span>我的喜欢</span>
-					</a>
-				</dd>
-				<dd>
-					<a href="./settings.html" class="icon-cog">
-						<span>设置</span>
-					</a>
-				</dd> -->
 			</dl>
 			<div class="extra">
 				<a href="javascript:;" class="icon-image">夜晚</a>
@@ -68,9 +39,9 @@
 			</div>
 			<!-- 主体 -->
 			<div ng-class="{body:true,collapse:collapsed}">
-				<div ng-view>
-				
-				</div>
+				<!-- 使用自定义指令添加img节点 -->
+				<div loading src="./public/images/loading.gif" ng-hide="loaded" class="loading"></div>
+				<div ng-view></div>
 			</div>
 		</div>
 	</div>
@@ -79,4 +50,5 @@
 <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
 <script type="text/javascript" src="scripts/controllers.js"></script>
 <script src="scripts/app.js"></script>
+<script src="scripts/directives.js"></script>
 </html>
