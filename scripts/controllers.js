@@ -57,7 +57,7 @@ angular.module("Controller",[])
 		$rootScope.loaded=!$rootScope.loaded;
 		// console.log(result);
 		$scope.posts=result.data.authors;
-		console.log($scope.posts);
+		// console.log($scope.posts);
 	});
 	$http({
 		url:"./api/author2.php",
