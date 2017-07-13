@@ -65,3 +65,4 @@ yike.config(function($locationProvider){
 			redirecTo:"/today"
 		})
 	}]);
+
